@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zombie Defense: The Last Stand</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <!-- Main Game Container -->
+    <div id="game-container">
+
+        <!-- Main Menu Screen -->
+        <div id="main-menu" class="game-screen active">
+            <h1>ZOMBIE DEFENSE</h1>
+            <button id="start-game-btn">START GAME</button>
+            <button id="settings-btn">SETTINGS</button>
+            <button id="credits-btn">CREDITS</button>
+            <div class="version-info">v0.1</div>
+        </div>
+
+        <!-- Settings Screen -->
+        <div id="settings-menu" class="game-screen">
+            <h2>SETTINGS</h2>
+            <div class="setting-item">
+                <label for="music-volume">Music Volume:</label>
+                <input type="range" id="music-volume" min="0" max="100" value="50">
+            </div>
+            <div class="setting-item">
+                <label for="sfx-volume">SFX Volume:</label>
+                <input type="range" id="sfx-volume" min="0" max="100" value="75">
+            </div>
+            <div class="setting-item">
+                <label for="quality-setting">Visual Quality:</label>
+                <select id="quality-setting">
+                    <option value="high">High</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <button id="back-to-main-btn">BACK</button>
+        </div>
+
+        <!-- Shop Screen -->
+        <div id="shop-menu" class="game-screen">
+            <h2>SHOP</h2>
+            <div id="shop-items-grid">
+                <!-- Shop items will be dynamically loaded here by JavaScript -->
+            </div>
+            <button id="shop-close-btn">CLOSE SHOP</button>
+        </div>
+
+        <!-- Game Over / Wave Complete Screen -->
+        <div id="game-message" class="game-screen">
+            <h2 id="message-title"></h2>
+            <p id="message-text"></p>
+            <button id="message-action-btn"></button>
+        </div>
+
+        <!-- Game World (where all 3D/2.5D elements live) -->
+        <div id="game-world">
+            <!-- House, Player, Zombies, Bots, Projectiles will be added here by JS -->
+            <div id="house" class="game-entity"></div>
+            <div id="player" class="game-entity"></div>
+        </div>
+
+        <!-- Heads-Up Display (HUD) -->
+        <div id="hud">
+            <div class="hud-bar-group">
+                <div class="hud-label">HP</div>
+                <div id="player-hp-bar" class="hud-bar"><div class="bar-fill"></div></div>
+            </div>
+            <div class="hud-bar-group">
+                <div class="hud-label">ARMOR</div>
+                <div id="player-armor-bar" class="hud-bar"><div class="bar-fill"></div></div>
+            </div>
+            <div class="hud-bar-group">
+                <div class="hud-label">STAMINA</div>
+                <div id="player-stamina-bar" class="hud-bar"><div class="bar-fill"></div></div>
+            </div>
+
+            <div id="countdown-timer" class="hud-info">01:00</div>
+            <div id="zpoints-display" class="hud-info">ZPOINTS: 0</div>
+            <div id="score-display" class="hud-info">SCORE: 0</div>
+            <div id="wave-display" class="hud-info">WAVE: 1</div>
+
+            <button id="open-shop-btn" class="hud-action-button">SHOP (S)</button>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/utils.js"></script>
+    <script src="js/gameLoop.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/house.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/botAI.js"></script>
+    <script src="js/weapons.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="script.js"></script> <!-- Main script, initializes everything -->
+</body>
+</html>
